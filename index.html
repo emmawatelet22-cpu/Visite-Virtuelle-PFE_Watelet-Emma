@@ -1,19 +1,187 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="pannellum.css"/>
   <script src="pannellum.js"></script>
+  <style>
+    html, body, #panorama {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="panorama" style="width:100%; height:100vh;"></div>
+  <div id="panorama"></div>
 
   <script>
     pannellum.viewer('panorama', {
-      type: 'equirectangular',
-      panorama: 'SCENE01.jpg',
-      autoLoad: true
+      default: {
+        firstScene: 'scene1',
+        sceneFadeDuration: 1000
+      },
+
+      scenes: {
+
+        scene1: {
+          title: 'Entrée',
+          panorama: 'SCENE01.jpg',
+          northOffset: 0,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: -3,
+              yaw: -13,
+              type: 'scene',
+              sceneId: 'scene2',
+              text: 'Aller scène 2'
+            }
+          ]
+        },
+
+        scene2: {
+          title: 'Salle 2',
+          panorama: 'SCENE02.jpg',
+          northOffset: 135,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: -2,
+              yaw: 2,
+              type: 'scene',
+              sceneId: 'scene1',
+              text: 'Retour entrée'
+            },
+            {
+              pitch: -1.05,
+              yaw: -26,
+              type: 'scene',
+              sceneId: 'scene3',
+              text: 'Aller scène 3'
+            }
+          ]
+        },
+
+        scene3: {
+          title: 'Salle 3',
+          panorama: 'SCENE03.jpg',
+          northOffset: 0,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: -3,
+              yaw: -13,
+              type: 'scene',
+              sceneId: 'scene2',
+              text: 'Retour scène 2'
+            },
+            {
+              pitch: 0,
+              yaw: 45,
+              type: 'scene',
+              sceneId: 'scene4',
+              text: 'Aller scène 4'
+            }
+          ]
+        },
+
+        scene4: {
+          title: 'Salle 4',
+          panorama: 'SCENE04.jpg',
+          northOffset: 0,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: 0,
+              yaw: -45,
+              type: 'scene',
+              sceneId: 'scene3',
+              text: 'Retour scène 3'
+            },
+            {
+              pitch: 0,
+              yaw: 45,
+              type: 'scene',
+              sceneId: 'scene5',
+              text: 'Aller scène 5'
+            }
+          ]
+        },
+
+        scene5: {
+          title: 'Salle 5',
+          panorama: 'SCENE05.jpg',
+          northOffset: 0,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: 0,
+              yaw: -45,
+              type: 'scene',
+              sceneId: 'scene4',
+              text: 'Retour scène 4'
+            },
+            {
+              pitch: 0,
+              yaw: 45,
+              type: 'scene',
+              sceneId: 'scene6',
+              text: 'Aller scène 6'
+            }
+          ]
+        },
+
+        scene6: {
+          title: 'Salle 6',
+          panorama: 'SCENE06.jpg',
+          northOffset: 0,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: 0,
+              yaw: -45,
+              type: 'scene',
+              sceneId: 'scene5',
+              text: 'Retour scène 5'
+            },
+            {
+              pitch: 0,
+              yaw: 45,
+              type: 'scene',
+              sceneId: 'scene7',
+              text: 'Aller scène 7'
+            }
+          ]
+        },
+
+        scene7: {
+          title: 'Sortie',
+          panorama: 'SCENE07.jpg',
+          northOffset: 0,
+          autoLoad: true,
+          hotSpotDebug: true,
+          hotSpots: [
+            {
+              pitch: 0,
+              yaw: -45,
+              type: 'scene',
+              sceneId: 'scene6',
+              text: 'Retour scène 6'
+            }
+          ]
+        }
+
+      }
     });
   </script>
 </body>
 </html>
+```
